@@ -37,7 +37,7 @@ var option = {
 module.exports = option
 
 node_echarts({
-    path: __dirname + '\imageDemo.png',
+    path: __dirname + '\\imageDemo.png',
     option: option,
     width: 1000,
     height: 500

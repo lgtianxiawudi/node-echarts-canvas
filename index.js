@@ -1,8 +1,7 @@
-var echarts = require("echarts");
-const { Image,createCanvas } = require('canvas')
+var echarts = require("./echarts");
+const { Image,createCanvas,loadImage  } = require('canvas')
 var fs = require('fs');
 var path = require('path');
-
 
 /**
  * @param config = {
@@ -33,7 +32,7 @@ module.exports = function (config) {
             const img = new Image();
             // img.onload = onload;
             // img.onerror = onerror;
-            img.src = src;
+            img.src=src;
             return img;
         }
     })
