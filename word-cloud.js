@@ -23,10 +23,10 @@ module.exports = function (config,response) {
         .canvas(() => canvas)
         .size([config.width, config.height])
         .words(config.option.map(function(d) {
-            return {text: d, size: 10 + Math.random() * 90, test: "haha"};
+            return {text: d, size: 10 + Math.random() * 50, test: "haha"};
         }))
         .padding(5)
-        .rotate(function() { return ~~(Math.random() * 2) * 90; })
+        .rotate(function() { return ~~(Math.random() * 2) * 50; })
         .font("Impact")
         .fontSize(function(d) { return d.size; })
         .on("end", async (words)=> {
