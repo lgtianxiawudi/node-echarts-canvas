@@ -48,12 +48,7 @@ var server = http.createServer(function (request, response) {
         wordCloud({
           width:config.width,
           height:config.height,
-          option:[
-            "Hello", "world", "normally", "you", "want", "more", "words",
-            "than", "this","Hello", "world", "normally", "you", "want", "more", "words",
-            "than", "this","Hello", "world", "normally", "you", "want", "more", "words",
-            "than", "this","Hello", "world", "normally", "you", "want", "more", "words",
-            "than", "this"]
+          option:JSON.parse(config.option)
         },response)
       }else{
         var buffer = echarts({
