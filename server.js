@@ -45,14 +45,18 @@ var server = http.createServer(function (request, response) {
 
     console.log(config.option);
 
-    var buffer = echarts({
-      option: JSON.parse(config.option),
-      width: config.width || 600,
-      height: config.height || 400,
-    });
-    response.setHeader("Content-Type", "image/png");
-    response.write(buffer);
-    response.end();
+    try {
+      var buffer = echarts({
+        option: JSON.parse(config.option),
+        width: config.width || 600,
+        height: config.height || 400,
+      });
+      response.setHeader("Content-Type", "image/png");
+      response.write(buffer);
+      response.end();
+    } catch (e){
+      response.end;
+    }
   });
 });
 

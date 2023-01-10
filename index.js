@@ -1,5 +1,5 @@
 var echarts = require("echarts");
-const { createCanvas } = require('canvas')
+const { Image,createCanvas } = require('canvas')
 var fs = require('fs');
 var path = require('path');
 
@@ -28,6 +28,16 @@ module.exports = function (config) {
     echarts.setCanvasCreator(function () {
         return ctx;
     });
+    echarts.setPlatformAPI({
+        loadImage:function (src, onload, onerror){
+            const img = new Image();
+            // img.onload = onload;
+            // img.onerror = onerror;
+            img.src = src;
+            return img;
+        }
+    })
+    echarts.loadim
 
     var chart, option = {
         title: {
