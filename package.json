@@ -34,7 +34,10 @@
   ],
   "dependencies": {
     "canvas": "^2.5.0",
-    "echarts": "^5.4.1"
+    "d3-cloud": "1.2.5",
+    "jsdom": "21.0.0",
+    "d3": "3",
+    "node-html-to-image": "3.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.32",

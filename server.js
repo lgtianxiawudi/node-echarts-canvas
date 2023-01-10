@@ -1,5 +1,6 @@
 var http = require("http");
 var echarts = require('./index.js');
+var wordCloud = require('./word-cloud.js');
 var url = require("url");
 
 function processConfig(request, response, callback) {
@@ -42,18 +43,28 @@ var server = http.createServer(function (request, response) {
       response.end('request parameter "config" format invalid');
       return;
     }
-
-    console.log(config.option);
-
     try {
-      var buffer = echarts({
-        option: JSON.parse(config.option),
-        width: config.width || 600,
-        height: config.height || 400,
-      });
-      response.setHeader("Content-Type", "image/png");
-      response.write(buffer);
-      response.end();
+      if (config.wordCloud){
+        wordCloud({
+          width:config.width,
+          height:config.height,
+          option:[
+            "Hello", "world", "normally", "you", "want", "more", "words",
+            "than", "this","Hello", "world", "normally", "you", "want", "more", "words",
+            "than", "this","Hello", "world", "normally", "you", "want", "more", "words",
+            "than", "this","Hello", "world", "normally", "you", "want", "more", "words",
+            "than", "this"]
+        },response)
+      }else{
+        var buffer = echarts({
+          option: JSON.parse(config.option),
+          width: config.width || 600,
+          height: config.height || 400,
+        });
+        response.setHeader("Content-Type", "image/png");
+        response.write(buffer);
+        response.end();
+      }
     } catch (e){
       response.end;
     }
