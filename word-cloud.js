@@ -47,6 +47,9 @@ module.exports = function (config,response) {
                 })
                 .text(function(d) { return d.text; });
             var image = await nodeHtmlToImage({
+                puppeteerArgs:{
+                    args: ['--no-sandbox', '--disable-setuid-sandbox']
+                },
                 html: `<html>
                     <head>
                       <style>
